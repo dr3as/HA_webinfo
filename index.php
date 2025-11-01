@@ -124,7 +124,7 @@ for($i=0;$i<5;$i++){
     }
 }
 
-// --- Toginfo ---
+// --- Toginfo ----
 $train_sensors = ["sensor.vy_avvik_vyg_line_l2"];
 $train_info = [];
 foreach($train_sensors as $sensor_id){
