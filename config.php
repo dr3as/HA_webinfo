@@ -1,5 +1,5 @@
 <?php
-// --- Home Assistant konfigurasjon ---
+// --- Home Assistant config ---
 $HA_URL = "http://:8123/api/states/"; // bytt til din HA URL
 $HA_TOKEN = "";       // bytt til din HA token
 
