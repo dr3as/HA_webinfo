@@ -4,7 +4,7 @@ $HA_URL = "http://:8123/api/states/"; // bytt til din HA URL
 $HA_TOKEN = "";       // bytt til din HA token
 
 // --- Enkel login ---
-$USERNAME = "ds";
+$USERNAME = "";
 $PASSWORD = ""; // bytt til ditt passord
 
 // --- Session timeout i sekunder ---
