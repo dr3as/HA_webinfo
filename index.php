@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'config.php';
+include 'config.php'; // config.php inneholder $USERS = ['dr3as'=>'passord1', 'nanette'=>'passord2', 'eline'=>'passord3']; og HA info
 
 // --- Session timeout ---
 if (!isset($_SESSION['last_activity'])) {
@@ -21,16 +21,10 @@ if (isset($_GET['logout'])) {
 
 // --- Håndter login ---
 $err = '';
-$users = [
-    "dr3as" => "pass123",
-    "nanette" => "pass456",
-    "eline" => "pass789"
-];
-
-if ($_SERVER['REQUEST_METHOD']==='POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = $_POST['username'] ?? '';
     $pass = $_POST['password'] ?? '';
-    if (isset($users[$user]) && $users[$user] === $pass) {
+    if (isset($USERS[$user]) && $USERS[$user] === $pass) {
         $_SESSION['user'] = $user;
         header("Location: index.php");
         exit;
@@ -46,7 +40,6 @@ if (!isset($_SESSION['user'])) {
     <html lang="no">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Logg inn</title>
         <link rel="stylesheet" href="style.css">
     </head>
@@ -98,19 +91,12 @@ function format_time($iso){
 
 // --- Hilsen basert på tid ---
 $hour = intval(date('H'));
-if ($hour >= 6 && $hour <= 11) {
-    $greeting = "God morgen";
-} elseif ($hour >= 12 && $hour <= 13) {
-    $greeting = "God formiddag";
-} elseif ($hour >= 14 && $hour <= 18) {
-    $greeting = "God ettermiddag";
-} elseif ($hour >= 19 && $hour <= 23) {
-    $greeting = "God kveld";
-} else {
-    $greeting = "God natt";
-}
-$user_display = ucfirst($_SESSION['user']);
-$full_greeting = "$greeting $user_display";
+$user = ucfirst($_SESSION['user']);
+if($hour>=6 && $hour<=11) $greeting = "God morgen $user";
+elseif($hour>=12 && $hour<=13) $greeting = "God formiddag $user";
+elseif($hour>=14 && $hour<=18) $greeting = "God ettermiddag $user";
+elseif($hour>=19 && $hour<=23) $greeting = "God kveld $user";
+else $greeting = "God natt $user";
 
 // --- Hent sensorer ---
 $sensors = [
@@ -203,7 +189,7 @@ if(count($entur_delays)){
 </head>
 <body>
 <a class="logout" href="index.php?logout=1">Logg ut</a>
-<h1><?= htmlspecialchars($full_greeting) ?>!</h1>
+<h1><?=$greeting?></h1>
 
 <!-- Temperaturer -->
 <div class="category">
