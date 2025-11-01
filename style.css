@@ -1,0 +1,102 @@
+/* Generelt */
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    margin: 0;
+    background-color: #121212;
+    color: #e0e0e0;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    color: #e0e0e0;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #2196f3;
+    border-bottom: 2px solid #2196f3;
+    padding-bottom: 5px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Kategorier */
+.category {
+    margin-bottom: 20px;
+}
+
+/* Container for flere items */
+.item-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* Hver box/item */
+.item {
+    background-color: #1e1e1e;
+    border-left: 5px solid #2196f3;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    padding: 10px;
+    flex: 1 1 200px;
+    max-width: 300px;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+/* Ikoner */
+.item .icon {
+    font-size: 1.8em;
+    margin: 0 0 5px 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Subinfo */
+.subinfo {
+    font-size: 0.9em;
+    color: #bbbbbb;
+    margin-top: 3px;
+}
+
+/* Logg ut lenke */
+.logout {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #e0e0e0;
+    text-decoration: none;
+    font-weight: bold;
+}
+.logout:hover { color: #2196f3; }
+
+/* Login-side */
+.box {
+    max-width: 350px;
+    margin: 80px auto;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    text-align: center;
+}
+.box h2 { margin-bottom: 15px; }
+.box label { display:block; margin-bottom: 12px; text-align:left; }
+.box input { width:100%; padding:7px; border-radius:4px; border:none; margin-top:3px; }
+.box button { padding:10px 20px; border:none; border-radius:5px; background-color:#2196f3; color:#fff; font-size:1em; cursor:pointer; }
+.box button:hover { background-color:#1976d2; }
+.err { color:#f44336; margin-bottom:10px; }
+
+/* Mobiltilpasning */
+@media (max-width:768px) {
+    body { padding:10px; font-size:1.3em; }
+    h1 { font-size:2em; margin-bottom:15px; }
+    h2 { font-size:1.5em; margin-top:15px; }
+    .item { max-width: 95%; flex:1 1 100%; padding:8px; font-size:1.2em; }
+    .item .icon { font-size:2em; margin:0 5px 0 0; }
+    .subinfo { font-size:1em; margin-top:2px; }
+}
